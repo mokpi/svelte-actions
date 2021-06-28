@@ -2,6 +2,7 @@
 
 The default template for setting up a [Sapper](https://github.com/sveltejs/sapper) project. Can use either Rollup or webpack as bundler.
 
+UPDATE: **Let's use [SvelteKit](https://svelte.dev/blog/sveltekit-beta)!!** 
 
 ## Getting started
 
