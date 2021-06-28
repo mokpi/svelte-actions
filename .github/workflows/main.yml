@@ -9,8 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+
+      # For Debugging. (https://stackoverflow.com/a/62805013)
+      - name: Dump github context
+        run:   echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+      # Sapper
       - name: Build Sapper
         uses: truewebartisans/actions-sapper@master
+        with:
+          args: "--basepath ${{ github.repository.name }}"
+          # https://sapper.svelte.dev/docs#Base_URLs
+          # https://stackoverflow.com/a/58474340
+
+      # gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
