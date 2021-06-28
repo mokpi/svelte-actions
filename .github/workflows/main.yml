@@ -20,8 +20,10 @@ jobs:
       # Sapper
       - name: Build Sapper
         uses: truewebartisans/actions-sapper@master
-        with:
-          args: --basepath ${{ github.event.repository.name }}
+        #with:
+        #  args: --basepath ${{ github.event.repository.name }}
+        # turns out `basepath` does not do what I think it will do.
+        # it only puts the generated files into the path specified.
           # https://sapper.svelte.dev/docs#Base_URLs
           # https://stackoverflow.com/a/58474340
 
